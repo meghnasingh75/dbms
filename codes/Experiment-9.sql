@@ -14,3 +14,17 @@ INTO customers VALUES (4, 'Chandan', 25, 'Noida', 26000)
 INTO customers VALUES (5, 'Alex', 21, 'Paris', 28000)
 INTO customers VALUES (6, 'Sunita', 20, 'Delhi', 30000)
 SELECT 1 FROM DUAL;
+
+SET serveroutput on;
+
+declare
+total_rows number(2);
+begin
+update customers
+set salary = salary+5000;
+if sql%notfound then
+dbms_output.put_line(total_rows || ' customers updated ');
+end if;
+end;
+
+SELECT * FROM customers;
